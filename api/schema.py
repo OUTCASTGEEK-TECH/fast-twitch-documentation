@@ -24,7 +24,7 @@ class ArticleNode(DjangoObjectType):
 
     class Meta:
         model = BlogPage
-        only_fields = ['id', 'title', 'date', 'intro', 'tags']
+        only_fields = ['id', 'title', 'slug', 'date', 'intro', 'tags']
 
     def resolve_body(self, info):
         repr_body = []
@@ -41,14 +41,22 @@ class ArticleNode(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     articles = graphene.List(ArticleNode)
+    article_by_slug = graphene.Field(ArticleNode, slug=graphene.String())
     articles_by_tag = graphene.List(ArticleNode, tag=graphene.String())
 
     @graphene.resolve_only_args
     def resolve_articles(self):
-        return BlogPage.objects.live()
+        articles = BlogPage.objects.live()
+        return articles
+
+    @graphene.resolve_only_args
+    def resolve_article_by_slug(self, slug):
+        article = BlogPage.objects.live().filter(slug=slug).first()
+        return article
 
     @graphene.resolve_only_args
     def resolve_articles_by_tag(self, tag):
-        return BlogPage.objects.live().filter(tags__name=tag)
+        articles = BlogPage.objects.live().filter(tags__name=tag)
+        return articles
 
 schema = graphene.Schema(query=Query)
