@@ -1,0 +1,25 @@
+---
+name: Routes
+menu: Guide
+---
+
+import { Playground, Props } from 'docz'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import clojure from 'react-syntax-highlighter/dist/esm/languages/prism/clojure';
+import { atomDark, coy, funky, okaidia, vs, twilight, xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+## Routing
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (def routing-data
+      ["/"
+       ;; public
+       {""                                  {:get
+                                             {"" :home}}
+        "home.transit"                      {:get
+                                             {"" :home-transit}}
+        "home.json"                         {:get
+                                             {"" :home-json}}}])
+  `}
+</SyntaxHighlighter>
