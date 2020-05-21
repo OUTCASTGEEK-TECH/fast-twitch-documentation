@@ -14,6 +14,26 @@ Create a new folder, initialize a new npm project and download node dependencies
 
 <SyntaxHighlighter language="shell" style={funky}>
   {`
+    .
+    ├── app.js
+    ├── config.edn
+    ├── deps.edn
+    ├── package-lock.json
+    ├── package.json
+    ├── shadow-cljs.edn
+    ├── src
+    │   └── main
+    │       ├── core.cljs
+    │       ├── dispatch.cljs
+    │       ├── endpoints.cljs
+    │       └── routing.cljs
+    └── static
+        ├── css
+        └── js
+  `}
+</SyntaxHighlighter>
+<SyntaxHighlighter language="shell" style={funky}>
+  {`
     mkdir -p your-new-project/src/main && cd your-new-project
     npm init # follow the intructions
     npm i body-parser cookie-parser cors create-react-class csurf --save
