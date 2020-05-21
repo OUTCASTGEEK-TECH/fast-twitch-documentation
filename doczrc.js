@@ -1,5 +1,5 @@
 // doczrc.js
 export default {
-    base: '/fast-twitch',
+    base: '/fast-twitch-documentation',
     dest: 'public',
 }

@@ -1,4 +1,4 @@
-# Fast Twitch Documentation
+# Fast Twitch [Documentation](https://outcastgeek-tech.github.io/fast-twitch-documentation/)
 
 **FastTwitch** is intended to provide a clojurescript friendly API 
 to popular NodeJs / Deno http servers. The goal is to play nice with
