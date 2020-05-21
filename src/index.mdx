@@ -3,9 +3,25 @@ name: Getting Started
 route: /
 ---
 
+import { Playground, Props } from 'docz'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import clojure from 'react-syntax-highlighter/dist/esm/languages/prism/clojure';
+import { atomDark, coy, funky, okaidia, vs, twilight, xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
 # Getting Started
 
-Design systems enable teams to build better products faster by making design reusable—reusability makes scale possible. This is the heart and primary value of design systems. A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications.
+Create a new folder, initialize a new npm project and download node dependencies
+
+<SyntaxHighlighter language="shell" style={funky}>
+  {`
+    mkdir -p your-new-project/src/main && cd your-new-project
+    npm init # follow the intructions
+    npm i body-parser cookie-parser cors create-react-class csurf --save
+    npm i express helmet js-joda moment morgan npm-run-all react react-dom --save
+    npm i serve-static source-map-support xhr2 --save
+    npm i nodemon shadow-cljs --save-dev
+  `}
+</SyntaxHighlighter>
 
 Regardless of the technologies and tools behind them, a successful design system follows these guiding principles:
 
