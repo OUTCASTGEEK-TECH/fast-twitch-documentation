@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "docz dev",
     "build": "docz build",
+    "deploy": "docz build && gh-pages -d public -r https://$GH_TOKEN@github.com/OUTCASTGEEK-TECH/fast-twitch-documentation.git",
     "serve": "docz serve"
   },
   "dependencies": {
@@ -13,5 +14,8 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-syntax-highlighter": "^12.2.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
