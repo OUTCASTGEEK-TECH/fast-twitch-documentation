@@ -14,6 +14,19 @@ Create a new folder, initialize a new npm project and download node dependencies
 
 <SyntaxHighlighter language="shell" style={funky}>
   {`
+    mkdir -p your-new-project/src/main && cd your-new-project
+    npm init # follow the intructions
+    npm i body-parser cookie-parser cors create-react-class csurf --save
+    npm i express helmet js-joda moment morgan npm-run-all react react-dom --save
+    npm i serve-static source-map-support xhr2 --save
+    npm i nodemon shadow-cljs --save-dev
+  `}
+</SyntaxHighlighter>
+
+Ensure that you have the following files and folders
+
+<SyntaxHighlighter language="shell" style={funky}>
+  {`
     .
     ├── app.js
     ├── config.edn
@@ -30,16 +43,6 @@ Create a new folder, initialize a new npm project and download node dependencies
     └── static
         ├── css
         └── js
-  `}
-</SyntaxHighlighter>
-<SyntaxHighlighter language="shell" style={funky}>
-  {`
-    mkdir -p your-new-project/src/main && cd your-new-project
-    npm init # follow the intructions
-    npm i body-parser cookie-parser cors create-react-class csurf --save
-    npm i express helmet js-joda moment morgan npm-run-all react react-dom --save
-    npm i serve-static source-map-support xhr2 --save
-    npm i nodemon shadow-cljs --save-dev
   `}
 </SyntaxHighlighter>
 
