@@ -1,0 +1,52 @@
+---
+name: Endpoints
+menu: Guide
+---
+
+import { Playground, Props } from 'docz'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import clojure from 'react-syntax-highlighter/dist/esm/languages/prism/clojure';
+import { atomDark, coy, funky, okaidia, vs, twilight, xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+## Render Html
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (defn home
+          [req]
+          (web/send :html
+                     [:<>
+                      [:h1 "Welcome to FastTwitch!"]
+                      [:a {:href (path-for routing-data :home-transit)} "Home as Transit Data"]
+                      [:br]
+                      [:a {:href (path-for routing-data :home-json)} "Home as JSON Data"]]))
+  `}
+</SyntaxHighlighter>
+
+## Render Json
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (defn home-json
+          [req]
+          (go
+            (web/send :json
+                      {:msg "Welcome to FastTwitch!"}
+                      {:headers {:Content-Type "application/json"}
+                       :status  200})))
+  `}
+</SyntaxHighlighter>
+
+## Render Transit
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (defn home-transit
+          [req]
+          (go
+            (web/send :transit
+                      {:msg "Welcome to FastTwitch!"}
+                      {:headers {:Content-Type "application/json"}
+                       :status  200})))
+  `}
+</SyntaxHighlighter>

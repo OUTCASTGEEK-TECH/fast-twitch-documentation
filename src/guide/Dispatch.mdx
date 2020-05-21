@@ -1,0 +1,57 @@
+---
+name: Dispatch
+menu: Guide
+---
+
+import { Playground, Props } from 'docz'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import clojure from 'react-syntax-highlighter/dist/esm/languages/prism/clojure';
+import { atomDark, coy, funky, okaidia, vs, twilight, xonokai } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+## Dispatch
+
+The dispatch namespace defines a multi method to handle the requests
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (ns dispatch
+      (:require [endpoints :as ep]
+                [fast-twitch.web-api :as web]))
+  `}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (defmulti handle (fn [req-data] (:endpoint req-data)))
+  `}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    ;; public
+    (defmethod handle :home [req-data]
+               (ep/home (:req req-data)))
+  `}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (defmethod handle :home-transit [req-data]
+               (ep/home-transit (:req req-data)))
+  `}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    (defmethod handle :home-json [req-data]
+               (ep/home-json (:req req-data)))
+  `}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language="clojure" style={funky}>
+  {`
+    ;; default
+    (defmethod handle :default [_]
+               (web/send "Not Found"))
+  `}
+</SyntaxHighlighter>
